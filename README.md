@@ -12,3 +12,10 @@ I typically utilize three commands during development:
 Advent of Code is an online event created by Eric Wastl. It is an annual online coding challenge that starts on December 1st. It features a series of daily programming puzzles that unlock at midnight EST/UTC-5, or 06:00 EST/UTC+1 in my local time. 
 
 <!--- advent_readme_stars table --->
+## 2023 Results
+
+| Day | Part 1 | Part 2 |
+| :---: | :---: | :---: |
+| [Day 1](https://adventofcode.com/2023/day/1) | ⭐ | ⭐ |
+| [Day 2](https://adventofcode.com/2023/day/2) | ⭐ | ⭐ |
+<!--- advent_readme_stars table --->
