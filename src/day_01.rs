@@ -7,8 +7,8 @@ struct Position {
 }
 
 const NUMBER_WORDS: [(&str, char); 9] = [
-("one", '1'), ("two", '2'), ("three", '3'), ("four", '4'),
-("five", '5'), ("six", '6'), ("seven", '7'), ("eight", '8'), ("nine", '9'),
+    ("one", '1'), ("two", '2'), ("three", '3'), ("four", '4'),
+    ("five", '5'), ("six", '6'), ("seven", '7'), ("eight", '8'), ("nine", '9'),
 ];
 
 fn extract_and_convert(input: &str) -> (u32, u32) {
@@ -53,7 +53,6 @@ fn extract_and_convert(input: &str) -> (u32, u32) {
 }
 
 
-
 impl AdventOfCode {
     pub fn part_a(input: &str) -> u32 {
         let mut sum = 0;
@@ -74,7 +73,7 @@ impl AdventOfCode {
         let mut sum = 0;
 
         for line in input.lines() {
-            let (first_number, last_number)  = extract_and_convert(line);
+            let (first_number, last_number) = extract_and_convert(line);
             sum += first_number * 10 + last_number;
         }
 
