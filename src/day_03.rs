@@ -187,7 +187,7 @@ mod tests {
     use indoc::indoc;
     use super::AdventOfCode;
 
-    const CASE_A: &str = indoc! {"
+    const CASE: &str = indoc! {"
         467..114..
         ...*......
         ..35..633.
@@ -199,10 +199,13 @@ mod tests {
         ...$.*....
         .664.598.."};
 
-
-
     #[test]
     fn test_a() {
-        assert_eq!(AdventOfCode::part_b(CASE_A), 467835);
+        assert_eq!(AdventOfCode::part_a(CASE), 4361);
+    }
+
+    #[test]
+    fn test_b() {
+        assert_eq!(AdventOfCode::part_b(CASE), 467835);
     }
 }
