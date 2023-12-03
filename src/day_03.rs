@@ -111,8 +111,6 @@ impl AdventOfCode {
 
             let stars_with_positions = find_stars_positions(line);
 
-
-            println!("{} {} {}", line_before, line, line_after);
             for star_position in stars_with_positions {
 
                 let line_numbers = find_numbers_and_positions(line);
@@ -142,35 +140,14 @@ impl AdventOfCode {
                     }
                 }
 
-                if number_beside.len() == 2 {
-                    numbers_adjacent_to_a_symbol.push(number_beside.iter().product());
-                    println!("{} * {} = {}", number_beside[0], number_beside[1], number_beside.iter().product::<u32>())
-                } else{
-                    if number_beside.len() == 1 {
-                        if number_top.len() == 1 {
-                            numbers_adjacent_to_a_symbol.push(number_top[0] * number_beside[0]);
-                            println!("{} * {} = {}", number_top[0], number_beside[0], number_top[0] * number_beside[0])
-                        }
-                        if number_bottom.len() == 1 {
-                            numbers_adjacent_to_a_symbol.push(number_bottom[0] * number_beside[0]);
-                            println!("{} * {} = {}", number_bottom[0], number_beside[0], number_bottom[0] * number_beside[0])
-                        }
-                    } else {
-                        if number_top.len() == 2 {
-                            numbers_adjacent_to_a_symbol.push(number_top.iter().product());
-                            println!("{} * {} = {}", number_top[0], number_top[1], number_top.iter().product::<u32>())
-                        } else {
-                            if number_bottom.len() == 2 {
-                                numbers_adjacent_to_a_symbol.push(number_bottom.iter().product());
-                                println!("{} * {} = {}", number_bottom[0], number_bottom[1], number_bottom.iter().product::<u32>())
-                            } else {
-                                if number_top.len() == 1 && number_bottom.len() == 1 {
-                                    numbers_adjacent_to_a_symbol.push(number_top[0] * number_bottom[0]);
-                                    println!("{} * {} = {}", number_top[0], number_bottom[0], number_top[0] * number_bottom[0])
-                                }
-                            }
-                        }
-                    }
+                match (number_beside.len(), number_top.len(), number_bottom.len()) {
+                    (2, _, _) => numbers_adjacent_to_a_symbol.push(number_beside.iter().product()),
+                    (1, 1, _) => numbers_adjacent_to_a_symbol.push(number_top[0] * number_beside[0]),
+                    (1, _, 1) => numbers_adjacent_to_a_symbol.push(number_bottom[0] * number_beside[0]),
+                    (0, 2, _) | (_, 2, 0) => numbers_adjacent_to_a_symbol.push(number_top.iter().product()),
+                    (_, 0, 2) => numbers_adjacent_to_a_symbol.push(number_bottom.iter().product()),
+                    (0, 1, 1) => numbers_adjacent_to_a_symbol.push(number_top[0] * number_bottom[0]),
+                    _ => {}
                 }
             }
         }
